@@ -1,0 +1,12 @@
+.SideDrawer {
+    background-color: var(--primary);
+    width: 100%;
+    position: absolute;
+    top: 64px;
+}
+
+@media (min-width: 768px) {
+    .SideDrawer {
+        display: none;
+    }
+}

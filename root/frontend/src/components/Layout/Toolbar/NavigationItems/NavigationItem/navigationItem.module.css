@@ -14,3 +14,15 @@
 .NavigationItem:hover {
     color: var(--green);
 }
+
+@media (max-width: 768px) {
+    .NavigationItem:last-child {
+        position: static;
+    }
+    .NavigationItem {
+        display: flex;
+        width: 100%;
+        text-align: left;
+        padding-bottom: 8px;
+    }
+}

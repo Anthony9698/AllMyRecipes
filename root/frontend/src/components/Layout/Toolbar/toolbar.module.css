@@ -1,5 +1,14 @@
 .Toolbar {
     height: 64px;
-    position: relative;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .DesktopOnly {
+        display: none;
+    }
 }
