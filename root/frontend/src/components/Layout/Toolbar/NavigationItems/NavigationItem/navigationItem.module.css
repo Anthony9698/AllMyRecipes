@@ -1,0 +1,11 @@
+.NavigationItem {
+    padding: 0 24px;
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.NavigationItem:last-child {
+    position: absolute;
+    right: 0;
+}

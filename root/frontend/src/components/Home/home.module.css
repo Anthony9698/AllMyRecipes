@@ -1,0 +1,23 @@
+.Home {
+
+}
+
+.Home::after {
+    content: "";
+    display: block;
+    margin: 16px auto;
+    width: 80%;
+    border-bottom: 1px solid black;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* h1::after {
+    content: "";
+    display: block;
+    margin: 16px auto;
+    width: 80%;
+    border: 1px solid red;
+} */

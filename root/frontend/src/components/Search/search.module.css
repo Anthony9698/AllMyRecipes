@@ -1,0 +1,28 @@
+.Search {
+    border: 1px solid black;
+    max-width: 600px;
+    height: 24px;
+    margin: 0 auto;
+    padding: 2px 24px;
+    position: relative;
+    border-radius: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.SearchIcon {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
