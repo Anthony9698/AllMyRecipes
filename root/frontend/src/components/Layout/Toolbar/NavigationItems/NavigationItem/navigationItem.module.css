@@ -3,9 +3,14 @@
     margin: 0;
     display: inline-block;
     cursor: pointer;
+    color: var(--white);
 }
 
 .NavigationItem:last-child {
     position: absolute;
     right: 0;
+}
+
+.NavigationItem:hover {
+    color: var(--green);
 }

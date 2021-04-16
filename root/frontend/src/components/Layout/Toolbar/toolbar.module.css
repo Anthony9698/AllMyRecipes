@@ -1,5 +1,5 @@
 .Toolbar {
     height: 64px;
-    border: 1px solid black;
     position: relative;
+    background-color: var(--primary);
 }
