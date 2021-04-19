@@ -1,0 +1,24 @@
+.Servings {
+    width: 115px;
+    height: 38px;
+    border: 1px solid #ced4da;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.Servings button {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    width: 35px;
+}
+
+.Servings input {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.Amount {
+    pointer-events: none;
+}
