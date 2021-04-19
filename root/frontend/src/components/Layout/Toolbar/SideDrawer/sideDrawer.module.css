@@ -3,6 +3,20 @@
     width: 100%;
     position: absolute;
     top: 64px;
+    z-index: 2;
+    transition: transform 0.25s ease-out;
+}
+
+.Open {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.Close {
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
 }
 
 @media (min-width: 768px) {

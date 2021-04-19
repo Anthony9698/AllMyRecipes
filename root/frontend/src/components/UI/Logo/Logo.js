@@ -1,4 +1,3 @@
-import react from 'react';
 import classes from './logo.module.css';
 
 const Logo = props => {

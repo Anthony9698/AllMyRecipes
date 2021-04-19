@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
 import classes from './layout.module.css';
 import Toolbar from './Toolbar/Toolbar';
 import SideDrawer from './Toolbar/SideDrawer/SideDrawer';
+import { SideDrawerProvider } from '../../context/SideDrawerContext';
 
 const Layout = props => {
-    // Declaring state for opening and closing sidedrawer
-    const [showSideDrawer, openSideDrawer] = useState(false);
-
     return (
-        <div className={classes.Layout}>
-            <Toolbar />
-            <main>
-                {props.children}
-            </main>
-            <SideDrawer />
-        </div>
+        <SideDrawerProvider>
+            <div className={classes.Layout}>
+                <Toolbar />
+                <SideDrawer />
+                <main>
+                    {props.children}
+                </main>
+            </div>
+        </SideDrawerProvider>
     );
 }
 export default Layout;

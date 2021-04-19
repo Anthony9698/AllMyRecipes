@@ -5,6 +5,8 @@
     top: 0;
     left: 0;
     background-color: var(--primary);
+    border-bottom: 1px solid white;
+    z-index: 3;
 }
 
 @media (max-width: 768px) {

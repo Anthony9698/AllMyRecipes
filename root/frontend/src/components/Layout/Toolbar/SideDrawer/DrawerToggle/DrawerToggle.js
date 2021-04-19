@@ -1,15 +1,18 @@
 import React from 'react';
 import classes from './drawerToggle.module.css';
+import { useSideDrawer, useSideDrawerUpdate } from '../../../../../context/SideDrawerContext';
 
 const DrawerToggle = props => {
     let topBar, midBar, botBar = null;
-    if (props.drawerOpen) {
+    const isSideDrawerOpen = useSideDrawer();
+    const toggleSideDrawer = useSideDrawerUpdate();
+    if (isSideDrawerOpen) {
         topBar = classes.TopBar;
         midBar = classes.MidBar;
         botBar = classes.BotBar;
     }
     return (
-        <div className={classes.DrawerToggle} onClick={props.clicked}>
+        <div className={classes.DrawerToggle} onClick={toggleSideDrawer}>
             <div className={[classes.Bars, topBar].join(" ")}></div>
             <div className={[classes.Bars, midBar].join(" ")}></div>
             <div className={[classes.Bars, botBar].join(" ")}></div>
