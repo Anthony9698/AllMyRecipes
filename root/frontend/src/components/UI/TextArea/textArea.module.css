@@ -1,0 +1,10 @@
+.TextArea {
+    margin-bottom: 1rem;
+    min-width: 540px;
+}
+
+@media (max-width: 568px) {
+    .TextArea {
+        min-width: 100%;
+    }
+}

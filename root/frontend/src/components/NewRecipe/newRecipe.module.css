@@ -2,23 +2,11 @@
 
 }
 
-.FormGroup {
-    min-width: 540px;
-    position: relative;
-}
-
-.Add {
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
-
 .MainContent {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding-left: 156px;
+    padding-right: 156px;
 }
 
 .NewRecipe h1::after {
@@ -36,21 +24,23 @@
 }
 
 .Display {
+    display: flex;
+    flex-direction: column;
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1425px) {
     .MainContent {
         flex-direction: column;
-    }
-
-    .FormGroup {
-        max-width: 300px;
-        margin: 0 auto;
+        align-items: center;
     }
 }
 
 @media (max-width: 568px) {
-    .FormGroup {
-        min-width: 100%;
+    .MainContent {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .Info, .Display {
+        width: 100%;
     }
 }

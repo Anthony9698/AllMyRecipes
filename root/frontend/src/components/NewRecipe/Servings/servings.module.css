@@ -1,10 +1,15 @@
 .Servings {
-    width: 115px;
+    width: 540px;
+}
+
+.Servings .Wrapper {
+    max-width: 115px;
     height: 38px;
     border: 1px solid #ced4da;
     display: flex;
     text-align: center;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 
 .Servings button {
@@ -21,4 +26,10 @@
 
 .Amount {
     pointer-events: none;
+}
+
+@media (max-width: 568px) {
+    .Servings {
+        width: 100%;
+    }
 }
