@@ -6,7 +6,7 @@ const Home = props => {
     return (
         <div className={classes.Home}>
             <h1>My Recipes</h1>
-            <Search />
+            <Search placeholder="Recipe Name..." />
         </div>
     );
 }

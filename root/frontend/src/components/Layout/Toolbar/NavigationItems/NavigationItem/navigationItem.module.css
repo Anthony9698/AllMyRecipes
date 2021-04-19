@@ -6,12 +6,26 @@
     color: var(--white);
 }
 
+a {
+    color: var(--white);
+    display: block;
+    height: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .NavigationItem:last-child {
     position: absolute;
     right: 0;
 }
 
-.NavigationItem:hover {
+.NavigationItem:hover * {
+    color: var(--green);
+}
+
+.active {
     color: var(--green);
 }
 

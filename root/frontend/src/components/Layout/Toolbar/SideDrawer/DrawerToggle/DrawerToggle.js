@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './drawerToggle.module.css';
-import { useSideDrawer, useSideDrawerUpdate } from '../../../../../context/SideDrawerContext';
+import { useSideDrawer, useSideDrawerUpdate } from '../SideDrawerContext';
 
 const DrawerToggle = props => {
     let topBar, midBar, botBar = null;

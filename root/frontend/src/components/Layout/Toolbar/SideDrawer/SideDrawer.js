@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './sideDrawer.module.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
-import { useSideDrawer } from '../../../../context/SideDrawerContext';
+import { useSideDrawer } from './SideDrawerContext';
 
 const SideDrawer = props => {
     let attachedStyles = [classes.SideDrawer, classes.Close].join(' ');

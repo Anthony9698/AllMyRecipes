@@ -1,7 +1,7 @@
 import classes from './layout.module.css';
 import Toolbar from './Toolbar/Toolbar';
 import SideDrawer from './Toolbar/SideDrawer/SideDrawer';
-import { SideDrawerProvider } from '../../context/SideDrawerContext';
+import { SideDrawerProvider } from './Toolbar/SideDrawer/SideDrawerContext';
 
 const Layout = props => {
     return (

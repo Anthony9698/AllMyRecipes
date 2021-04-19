@@ -5,7 +5,7 @@ import { ReactComponent as SearchIcon } from '../../assets/Search/search.svg';
 const Search = props => {
     return (
         <div className={classes.Search}>
-            <input type="text" placeholder="Recipe Name..." />
+            <input type="text" placeholder={props.placeholder} />
             <button className={classes.SearchIcon}>
                 <SearchIcon />
             </button>

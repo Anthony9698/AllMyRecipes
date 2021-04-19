@@ -9,16 +9,6 @@
 }
 
 @media (max-width: 768px) {
-    /* .NavigationItems {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-flow: column;
-                flex-flow: column;
-        height: 150px;
-        position: absolute;
-        top: 16px;
-        left: 16px;
-    } */
     .NavigationItems {
         flex-direction: column;
         padding: 0;
