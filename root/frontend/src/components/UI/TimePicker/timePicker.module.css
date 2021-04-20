@@ -1,0 +1,16 @@
+.TimePicker {
+}
+
+.TimePicker .Wrapper {
+    height: 38px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    border: 1px solid #ced4da;
+    align-items: center;
+}
+
+.TimePicker input {
+    padding: 0;
+    text-align: center;
+}

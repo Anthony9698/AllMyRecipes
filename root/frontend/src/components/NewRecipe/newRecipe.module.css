@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 1425px) {
@@ -48,5 +49,15 @@
     }
     .Info, .Display {
         width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .Mid {
+        flex-direction: column;
+    }
+
+    .Mid > div {
+        margin-bottom: 1rem;
     }
 }

@@ -1,34 +1,27 @@
-.Servings {
+.NumPicker {
 }
 
-.Servings .Wrapper {
+.NumPicker .Wrapper {
     width: 115px;
     height: 38px;
     border: 1px solid #ced4da;
     display: flex;
     text-align: center;
     justify-content: space-between;
-    margin-bottom: 16px;
 }
 
-.Servings button {
+.NumPicker button {
     outline: none;
     background-color: transparent;
     border: none;
     width: 35px;
 }
 
-.Servings input {
+.NumPicker input {
     text-align: center;
     margin: 0 auto;
 }
 
 .Amount {
     pointer-events: none;
-}
-
-@media (max-width: 568px) {
-    .Servings {
-        width: 100%;
-    }
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import classes from './newRecipe.module.css';
-import Servings from './Servings/Servings';
+import NumPicker from '../UI/NumPicker/NumPicker';
 import Input from '../UI/Input/Input';
 import TextArea from '../UI/TextArea/TextArea';
 import DropDown from '../UI/DropDown/DropDown';
+import TimePicker from '../UI/TimePicker/TimePicker';
 
 const NewRecipe = () => {
     const [servingAmount, setAmount] = useState(1);
@@ -11,7 +12,7 @@ const NewRecipe = () => {
     const [dropDownOpen, setDropDownOpen] = useState(false);
 
     const numInRange = x => (Math.sign(x) === -1 && servingAmount !== 1) ||
-    (Math.sign(x) === 1 && servingAmount !== 99);
+                            (Math.sign(x) === 1 && servingAmount !== 99);
     
     const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
     const toggleFoodtype = type => { setFoodType(type); setDropDownOpen(false) }
@@ -27,7 +28,8 @@ const NewRecipe = () => {
                     <Input label="Add Ingredient" placeholder="Ingredient name" add />
                     <Input label="Add Instruction" placeholder="Instruction step" add />
                     <div className={classes.Mid}>
-                        <Servings label="Servings" clicked={toggleAmount} amount={servingAmount} />
+                        <NumPicker label="Servings" clicked={toggleAmount} amount={servingAmount} />
+                        <TimePicker label="Cook Time" />
                         <DropDown 
                             label="Type" 
                             value={foodType} 
