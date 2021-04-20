@@ -1,9 +1,8 @@
 .Servings {
-    width: 540px;
 }
 
 .Servings .Wrapper {
-    max-width: 115px;
+    width: 115px;
     height: 38px;
     border: 1px solid #ced4da;
     display: flex;

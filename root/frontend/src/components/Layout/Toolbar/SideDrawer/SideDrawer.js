@@ -7,8 +7,7 @@ const SideDrawer = props => {
     let attachedStyles = [classes.SideDrawer, classes.Close].join(' ');
     let sideDrawerOpen = useSideDrawer();
     if (sideDrawerOpen) {
-        attachedStyles = [classes.SideDrawer, classes.Open].join(' ');
-        console.log("open");
+        attachedStyles = classes.SideDrawer;
     }
 
     return (

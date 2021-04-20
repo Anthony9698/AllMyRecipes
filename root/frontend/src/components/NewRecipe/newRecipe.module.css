@@ -28,6 +28,12 @@
     flex-direction: column;
 }
 
+.Mid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media (max-width: 1425px) {
     .MainContent {
         flex-direction: column;

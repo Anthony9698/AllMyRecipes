@@ -3,13 +3,20 @@ import classes from './newRecipe.module.css';
 import Servings from './Servings/Servings';
 import Input from '../UI/Input/Input';
 import TextArea from '../UI/TextArea/TextArea';
+import DropDown from '../UI/DropDown/DropDown';
 
 const NewRecipe = () => {
     const [servingAmount, setAmount] = useState(1);
-    const numInRange = x => (Math.sign(x) === -1 && servingAmount !== 1) ||
-        (Math.sign(x) === 1 && servingAmount !== 99);
-    const toggleAmount = x => numInRange(x) ? setAmount(prevAmt => prevAmt + x) : servingAmount;
+    const [foodType, setFoodType] = useState("Select");
+    const [dropDownOpen, setDropDownOpen] = useState(false);
 
+    const numInRange = x => (Math.sign(x) === -1 && servingAmount !== 1) ||
+    (Math.sign(x) === 1 && servingAmount !== 99);
+    
+    const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
+    const toggleFoodtype = type => { setFoodType(type); setDropDownOpen(false) }
+    const toggleAmount = x => numInRange(x) ? setAmount(prevAmt => prevAmt + x) : servingAmount;
+    
     return (
         <div className={classes.NewRecipe}>
             <h1>New Recipe</h1>
@@ -19,7 +26,15 @@ const NewRecipe = () => {
                     <TextArea label="Description" placeholder="Recipe description" rows="3" />
                     <Input label="Add Ingredient" placeholder="Ingredient name" add />
                     <Input label="Add Instruction" placeholder="Instruction step" add />
-                    <Servings label="Servings" clicked={toggleAmount} amount={servingAmount} />
+                    <div className={classes.Mid}>
+                        <Servings label="Servings" clicked={toggleAmount} amount={servingAmount} />
+                        <DropDown 
+                            label="Type" 
+                            value={foodType} 
+                            clicked={toggleDropDownMenu}
+                            toggleFoodType={toggleFoodtype}
+                            dropDownOpen={dropDownOpen} />
+                    </div>
                 </div>
                 <div className={classes.Display}>
                     <Input label="Title" placeholder="Recipe name" />

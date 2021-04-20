@@ -1,0 +1,25 @@
+.DropDown {
+    height: 100%;
+}
+
+.DropDownWrapper {
+    width: 115px;
+    height: 38px;
+    border: 1px solid #ced4da;
+    position: relative;
+}
+
+.Delta {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 32px;
+}
+
+.Type {
+    position: absolute;
+    left: 8px;
+    bottom: 4px;
+}
