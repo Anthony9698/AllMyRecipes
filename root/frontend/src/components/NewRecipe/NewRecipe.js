@@ -10,6 +10,8 @@ const NewRecipe = () => {
     const [servingAmount, setAmount] = useState(1);
     const [foodType, setFoodType] = useState("Select");
     const [dropDownOpen, setDropDownOpen] = useState(false);
+    const [minutes, setMinutes] = useState(0);
+    const [hours, setHours] = useState(0);
 
     const numInRange = x => (Math.sign(x) === -1 && servingAmount !== 1) ||
                             (Math.sign(x) === 1 && servingAmount !== 99);
@@ -17,7 +19,9 @@ const NewRecipe = () => {
     const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
     const toggleFoodtype = type => { setFoodType(type); setDropDownOpen(false) }
     const toggleAmount = x => numInRange(x) ? setAmount(prevAmt => prevAmt + x) : servingAmount;
-    
+    const toggleMinutes = event => setMinutes(event.target.value);
+    const toggleHours = event => setHours(event.target.value);
+
     return (
         <div className={classes.NewRecipe}>
             <h1>New Recipe</h1>
@@ -29,7 +33,12 @@ const NewRecipe = () => {
                     <Input label="Add Instruction" placeholder="Instruction step" add />
                     <div className={classes.Mid}>
                         <NumPicker label="Servings" clicked={toggleAmount} amount={servingAmount} />
-                        <TimePicker label="Cook Time" />
+                        <TimePicker 
+                            label="Cook Time" 
+                            minutes={minutes} 
+                            toggleMinutes={toggleMinutes}
+                            hours={hours}
+                            toggleHours={toggleHours} />
                         <DropDown 
                             label="Type" 
                             value={foodType} 
