@@ -3,6 +3,7 @@
     height: 30px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .Ingredient:not(:last-child) {
@@ -16,10 +17,25 @@
     height: 20px;
     border: 1px solid var(--yellow);
     border-radius: 4px;
+    position: relative;
 }
 
 .Bullet:hover {
     cursor: pointer;
     border: 2px solid var(--yellow);
+}
+
+.Selected {
+    background-image: url("../../../../assets/selected.svg");
+}
+
+.Delete {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0.5rem;
+    border-radius: 20px;
+    background-image: url("../../../../assets/delete.svg");
+    cursor: pointer;
 }
 
