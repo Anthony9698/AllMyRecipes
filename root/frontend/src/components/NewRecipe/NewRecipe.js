@@ -8,6 +8,7 @@ import TimePicker from '../UI/TimePicker/TimePicker';
 import Radio from '../UI/Radio/Radio';
 import CoverImage from './CoverImage/CoverImage';
 import RecipeIcons from './RecipeIcons/RecipeIcons';
+import Ingredients from '../UI/Ingredients/Ingredients';
 
 const NewRecipe = () => {
     const [recipeTitle, setRecipeTitle] = useState("Recipe Title")
@@ -76,6 +77,7 @@ const NewRecipe = () => {
                             servings={servings > 1 ? servings + " servings" : servings + " serving"}
                             visibility={visibility} />
                     </div>
+                    <Ingredients />
                 </div>
             </div>
         </div>
