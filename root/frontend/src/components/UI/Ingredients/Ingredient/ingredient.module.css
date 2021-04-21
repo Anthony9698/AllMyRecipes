@@ -27,6 +27,7 @@
 
 .Selected {
     background-image: url("../../../../assets/selected.svg");
+    visibility: visible !important;
 }
 
 .Delete {
@@ -37,5 +38,6 @@
     border-radius: 20px;
     background-image: url("../../../../assets/delete.svg");
     cursor: pointer;
+    visibility: hidden;
 }
 

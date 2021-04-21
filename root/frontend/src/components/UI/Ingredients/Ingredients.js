@@ -7,14 +7,7 @@ const Ingredients = props => {
         <div className={classes.Ingredients}>
             <div className={classes.Label}>Ingredients</div>
             <div className={classes.IngredientList}>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
-                <Ingredient>Ingredient Name</Ingredient>
+            {props.ingredients.map((ingredient, index) => <Ingredient key={index}>{ingredient}</Ingredient>)}
             </div>
         </div>
     );

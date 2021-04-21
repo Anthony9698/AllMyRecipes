@@ -1,16 +1,7 @@
 .Input {
     width: 540px;
-    position: relative;
     margin-bottom: 1rem;
-}
-
-.Add {
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    background-color: transparent;
-    border: none;
-    outline: none;
+    position: relative;
 }
 
 @media (max-width: 568px) {
