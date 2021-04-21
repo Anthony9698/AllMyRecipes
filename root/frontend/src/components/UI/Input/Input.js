@@ -17,7 +17,8 @@ const Input = props => {
             <input
                 type="text"
                 className="form-control"
-                placeholder={props.placeholder} />
+                placeholder={props.placeholder}
+                onChange={props.onChange} />
             {addButton}
         </div>
     );

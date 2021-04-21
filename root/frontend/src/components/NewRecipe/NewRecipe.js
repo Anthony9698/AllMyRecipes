@@ -10,6 +10,7 @@ import CoverImage from './CoverImage/CoverImage';
 import RecipeIcons from './RecipeIcons/RecipeIcons';
 
 const NewRecipe = () => {
+    const [recipeTitle, setRecipeTitle] = useState("Recipe Title")
     const [servings, setAmount] = useState(1);
     const [foodType, setFoodType] = useState("Select");
     const [dropDownOpen, setDropDownOpen] = useState(false);
@@ -20,6 +21,7 @@ const NewRecipe = () => {
     const numInRange = x => (Math.sign(x) === -1 && servings !== 1) ||
         (Math.sign(x) === 1 && servings !== 99);
 
+    const toggleRecipeTitle = event => setRecipeTitle(event.target.value);
     const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
     const toggleFoodtype = type => { setFoodType(type); setDropDownOpen(false) }
     const toggleAmount = x => numInRange(x) ? setAmount(prevAmt => prevAmt + x) : servings;
@@ -32,7 +34,10 @@ const NewRecipe = () => {
             <h1>New Recipe</h1>
             <div className={classes.MainContent}>
                 <div className={classes.Info}>
-                    <Input label="Title" placeholder="Recipe name" />
+                    <Input 
+                        label="Title" 
+                        placeholder="Recipe name"
+                        onChange={toggleRecipeTitle} />
                     <TextArea label="Description" placeholder="Recipe description" rows="3" />
                     <Input label="Add Ingredient" placeholder="Ingredient name" add />
                     <Input label="Add Instruction" placeholder="Instruction step" add />
@@ -63,6 +68,7 @@ const NewRecipe = () => {
                         onChange={toggleVisibility}>Public Recipe (Anyone can see this)</Radio>
                 </div>
                 <div className={classes.Display}>
+                    <h5>{recipeTitle === "" ? "Recipe Title" : recipeTitle}</h5>
                     <CoverImage />
                     <div className={classes.RecipeIcons}>
                         <RecipeIcons

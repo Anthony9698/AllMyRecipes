@@ -21,14 +21,17 @@
 .Info {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
 }
 
 .Display {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     min-width: 540px;
+    border: 1px solid black;
+}
+
+.Display h5 {
+    text-align: center;
 }
 
 .Mid {
