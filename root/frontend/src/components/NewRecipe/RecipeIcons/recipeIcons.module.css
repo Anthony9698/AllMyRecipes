@@ -1,0 +1,19 @@
+.RecipeIcons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    width: 225px;
+    padding: 0.25rem;
+}
+
+.Icon {
+    text-align: center;
+    width: 55px;
+    height: 55px;
+}
+
+.Faded svg {
+    opacity: 0.2;
+}

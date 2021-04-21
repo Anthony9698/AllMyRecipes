@@ -4,7 +4,7 @@
 
 .MainContent {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-left: 156px;
     padding-right: 156px;
 }
@@ -21,11 +21,14 @@
 .Info {
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
 }
 
 .Display {
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    min-width: 540px;
 }
 
 .Mid {
@@ -33,6 +36,15 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
+}
+
+.RecipeIcons {
+    margin: 0 auto;
+}
+
+.VisibilityRadioGroup {
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 1425px) {

@@ -1,7 +1,7 @@
 .TimePicker {
 }
 
-.TimePicker .Wrapper {
+.Input {
     height: 38px;
     display: flex;
     text-align: center;

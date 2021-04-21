@@ -5,14 +5,15 @@ const TimePicker = props => {
     return (
         <div className={classes.TimePicker}>
             <label>{props.label}</label>
-            <div className={classes.Wrapper}>
+            <div className={classes.Input}>
                 <input 
                     className="Hours" 
                     type="text" 
                     maxLength="2" 
                     size="2" 
                     value={props.hours}
-                    onChange={props.toggleHours}></input>
+                    onChange={props.toggleHours}
+                    placeholder="hh"></input>
                 <span>:</span>
                 <input 
                     className="Minutes" 
@@ -20,7 +21,8 @@ const TimePicker = props => {
                     maxLength="2" 
                     size="2" 
                     value={props.minutes}
-                    onChange={props.toggleMinutes}></input>
+                    onChange={props.toggleMinutes}
+                    placeholder="mm"></input>
             </div>
         </div>
     );
