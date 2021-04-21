@@ -35,10 +35,15 @@ const NewRecipe = () => {
     const toggleVisibility = event => setVisibility(event.target.value);
     const addIngredient = event => {
         if (currIngredient !== "") {
-            setIngredients(prevIngredients => [...prevIngredients, currIngredient]);
+            setIngredients(prevIngredients => [...prevIngredients, { name: currIngredient, selected: false }]);
             setCurrIngredient("");
         }
         console.log(ingredients);
+    }
+    const selectIngredient = index => {
+        let currIngredients = [...ingredients];
+        currIngredients[index].selected = !currIngredients[index].selected;
+        setIngredients(currIngredients);
     }
 
     return (
@@ -94,7 +99,7 @@ const NewRecipe = () => {
                             servings={servings > 1 ? servings + " servings" : servings + " serving"}
                             visibility={visibility} />
                     </div>
-                    <Ingredients ingredients={ingredients} />
+                    <Ingredients ingredients={ingredients} selectIngredient={selectIngredient} />
                 </div>
             </div>
         </div>

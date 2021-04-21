@@ -7,7 +7,13 @@ const Ingredients = props => {
         <div className={classes.Ingredients}>
             <div className={classes.Label}>Ingredients</div>
             <div className={classes.IngredientList}>
-            {props.ingredients.map((ingredient, index) => <Ingredient key={index}>{ingredient}</Ingredient>)}
+                {props.ingredients.map((ingredient, index) => (
+                    <Ingredient
+                        key={index}
+                        index={index}
+                        selected={ingredient.selected}
+                        clicked={props.selectIngredient}>{ingredient.name}</Ingredient>
+                ))}
             </div>
         </div>
     );
