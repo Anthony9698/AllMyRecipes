@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ingredient.module.css';
+import Input from '../../../UI/Input/Input';
 
 const Ingredient = props => {
     let attachedStyles = classes.Bullet;
@@ -9,7 +10,8 @@ const Ingredient = props => {
     return (
         <div className={classes.Ingredient}>
             <div className={attachedStyles} onClick={() => props.clicked(props.index)}></div>
-            <span className={classes.Text}>{props.children}</span>
+            {/* <span>{props.children}</span> */}
+            <Input value={props.children} onChange={event => props.ingChanged(event, props.index)} />
             <div className={classes.Delete}></div>
         </div>
     );

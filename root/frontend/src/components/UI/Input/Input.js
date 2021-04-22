@@ -7,7 +7,8 @@ const Input = props => {
             <label>{props.label}</label>
             <input
                 type="text"
-                className="form-control"
+                // className="form-control"
+                className={props.class}
                 placeholder={props.placeholder}
                 onChange={props.onChange}
                 value={props.value} />

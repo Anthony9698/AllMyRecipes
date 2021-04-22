@@ -46,24 +46,36 @@ const NewRecipe = () => {
         setIngredients(currIngredients);
     }
 
+    const editIngredientName = (event, index) => {
+        let currIngredients = [...ingredients];
+        currIngredients[index].name = event.target.value;
+        setIngredients(currIngredients);
+    }
+
     return (
         <div className={classes.NewRecipe}>
             <h1>New Recipe</h1>
             <div className={classes.MainContent}>
                 <div className={classes.Info}>
                     <Input
+                        class="form-control"
                         label="Title"
                         placeholder="Recipe name"
                         onChange={toggleRecipeTitle} />
                     <TextArea label="Description" placeholder="Recipe description" rows="3" />
                     <Input
+                        class="form-control"
                         label="Add Ingredient"
                         placeholder="Ingredient name"
                         onChange={toggleCurrIngredient}
                         value={currIngredient}>
                         <AddButton clicked={addIngredient} />
                     </Input>
-                    <Input label="Add Instruction" placeholder="Instruction step" add />
+                    <Input 
+                        class="form-control" 
+                        label="Add Instruction" 
+                        placeholder="Instruction step" 
+                        add />
                     <div className={classes.Mid}>
                         <NumPicker label="Servings" clicked={toggleAmount} amount={servings} />
                         <TimePicker
@@ -99,7 +111,10 @@ const NewRecipe = () => {
                             servings={servings > 1 ? servings + " servings" : servings + " serving"}
                             visibility={visibility} />
                     </div>
-                    <Ingredients ingredients={ingredients} selectIngredient={selectIngredient} />
+                    <Ingredients 
+                        ingredients={ingredients} 
+                        selectIngredient={selectIngredient}
+                        editIngredientName={editIngredientName} />
                 </div>
             </div>
         </div>
