@@ -13,7 +13,8 @@ const Ingredients = props => {
                         index={index}
                         selected={ingredient.selected}
                         clicked={props.selectIngredient}
-                        ingChanged={props.editIngredientName}>{ingredient.name}</Ingredient>
+                        ingChanged={props.editIngredientName}
+                        deleteIng={props.deleteIng}>{ingredient.name}</Ingredient>
                 ))}
             </div>
         </div>

@@ -38,7 +38,6 @@ const NewRecipe = () => {
             setIngredients(prevIngredients => [...prevIngredients, { name: currIngredient, selected: false }]);
             setCurrIngredient("");
         }
-        console.log(ingredients);
     }
     const selectIngredient = index => {
         let currIngredients = [...ingredients];
@@ -49,6 +48,14 @@ const NewRecipe = () => {
     const editIngredientName = (event, index) => {
         let currIngredients = [...ingredients];
         currIngredients[index].name = event.target.value;
+        setIngredients(currIngredients);
+    }
+
+    const deleteIng = index => {
+        let currIngredients = [...ingredients];
+        currIngredients = currIngredients.slice(0, index)
+                        .concat(currIngredients
+                        .slice(index + 1, currIngredients.length));
         setIngredients(currIngredients);
     }
 
@@ -114,7 +121,8 @@ const NewRecipe = () => {
                     <Ingredients 
                         ingredients={ingredients} 
                         selectIngredient={selectIngredient}
-                        editIngredientName={editIngredientName} />
+                        editIngredientName={editIngredientName}
+                        deleteIng={deleteIng} />
                 </div>
             </div>
         </div>
