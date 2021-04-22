@@ -11,6 +11,7 @@ const Instructions = props => {
                     <Instruction
                         key={index}
                         index={index}
+                        stepNum={index + instruction.stepNum}
                         selected={instruction.selected}
                         clicked={props.selectInstruction}
                         instrChanged={props.editInstructionDesc}

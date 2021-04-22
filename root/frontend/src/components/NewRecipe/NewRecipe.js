@@ -45,7 +45,14 @@ const NewRecipe = () => {
     }
     const addInstruction = event => {
         if (currInstruction !== "") {
-            setInstructions(prevInstructions => [...prevInstructions, { desc: currInstruction, selected: false }]);
+            setInstructions(prevInstructions => {
+                return [...prevInstructions, 
+                    {
+                        stepNum: 1, 
+                        desc: currInstruction, 
+                        selected: false 
+                    }];
+            });
             setCurrInstruction("");
         }
     }

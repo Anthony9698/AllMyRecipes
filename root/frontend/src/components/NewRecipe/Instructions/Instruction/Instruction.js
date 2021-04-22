@@ -11,6 +11,7 @@ const Instruction = props => {
     }
     return (
         <div className={classes.Instruction}>
+            <span className={classes.Step}>{props.stepNum + ")"}</span>
             <div className={bulletStyles} onClick={() => props.clicked(props.index)}></div>
             <TextArea
                 rows="3"
