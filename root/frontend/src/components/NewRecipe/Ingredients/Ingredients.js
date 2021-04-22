@@ -6,7 +6,7 @@ const Ingredients = props => {
     return (
         <div className={classes.Ingredients}>
             <div className={classes.Label}>Ingredients</div>
-            <div className={classes.IngredientList}>
+            <div className={classes.List}>
                 {props.ingredients.map((ingredient, index) => (
                     <Ingredient
                         key={index}

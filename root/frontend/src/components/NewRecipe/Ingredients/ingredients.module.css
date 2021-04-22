@@ -1,9 +1,10 @@
 .Ingredients {
     padding: 0 1rem;
     width: 540px;
+    margin-bottom: 1rem;
 }
 
-.IngredientList {
+.List {
     border: 1px solid #ced4da;
     max-height: 92px;
     overflow-y: auto;

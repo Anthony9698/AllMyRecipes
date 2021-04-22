@@ -6,7 +6,7 @@ const TextArea = props => {
         <div className={classes.TextArea}>
             <label>{props.label}</label>
             <textarea
-                className="form-control"
+                className={props.class}
                 id="recipeDescription"
                 rows={props.rows}
                 placeholder={props.placeholder}></textarea>

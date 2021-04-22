@@ -1,0 +1,67 @@
+.Instruction {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.Instruction textarea {
+    width: 87%;
+    height: 100%;
+    padding-right: 24px;
+    outline: none;
+    border: none;
+}
+
+.Instruction * {
+    margin-bottom: 0;
+}
+
+.Instruction:not(:last-child) {
+    border-bottom: 1px solid #ced4da;
+}
+
+.Bullet {
+    margin-left: 8px;
+    margin-right: 8px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1px solid var(--yellow);
+    border-radius: 4px;
+    position: relative;
+}
+
+.Bullet:hover {
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 2px solid var(--yellow);
+}
+
+.Selected {
+    visibility: visible !important;
+}
+
+.Selected:not(.Delete):after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #B3730C;
+    position: absolute;
+    top: 18%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+.Delete {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0.5rem;
+    border-radius: 20px;
+    background-image: url("../../../../assets/delete.svg");
+    cursor: pointer;
+    visibility: hidden;
+}

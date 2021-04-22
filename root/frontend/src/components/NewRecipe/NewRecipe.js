@@ -8,7 +8,8 @@ import TimePicker from '../UI/TimePicker/TimePicker';
 import Radio from '../UI/Radio/Radio';
 import CoverImage from './CoverImage/CoverImage';
 import RecipeIcons from './RecipeIcons/RecipeIcons';
-import Ingredients from '../UI/Ingredients/Ingredients';
+import Ingredients from './Ingredients/Ingredients';
+import Instructions from './Instructions/Instructions';
 import AddButton from '../UI/AddButton/AddButton';
 
 const NewRecipe = () => {
@@ -54,8 +55,8 @@ const NewRecipe = () => {
     const deleteIng = index => {
         let currIngredients = [...ingredients];
         currIngredients = currIngredients.slice(0, index)
-                        .concat(currIngredients
-                        .slice(index + 1, currIngredients.length));
+            .concat(currIngredients
+                .slice(index + 1, currIngredients.length));
         setIngredients(currIngredients);
     }
 
@@ -69,7 +70,7 @@ const NewRecipe = () => {
                         label="Title"
                         placeholder="Recipe name"
                         onChange={toggleRecipeTitle} />
-                    <TextArea label="Description" placeholder="Recipe description" rows="3" />
+                    <TextArea class="form-control" label="Description" placeholder="Recipe description" rows="3" />
                     <Input
                         class="form-control"
                         label="Add Ingredient"
@@ -78,11 +79,12 @@ const NewRecipe = () => {
                         value={currIngredient}>
                         <AddButton clicked={addIngredient} />
                     </Input>
-                    <Input 
+                    {/* <Input 
                         class="form-control" 
                         label="Add Instruction" 
                         placeholder="Instruction step" 
-                        add />
+                        add /> */}
+                    <TextArea class="form-control" label="Add Instruction" placeholder="Instruction Step" rows="3" />
                     <div className={classes.Mid}>
                         <NumPicker label="Servings" clicked={toggleAmount} amount={servings} />
                         <TimePicker
@@ -118,11 +120,12 @@ const NewRecipe = () => {
                             servings={servings > 1 ? servings + " servings" : servings + " serving"}
                             visibility={visibility} />
                     </div>
-                    <Ingredients 
-                        ingredients={ingredients} 
+                    <Ingredients
+                        ingredients={ingredients}
                         selectIngredient={selectIngredient}
                         editIngredientName={editIngredientName}
                         deleteIng={deleteIng} />
+                    <Instructions />
                 </div>
             </div>
         </div>

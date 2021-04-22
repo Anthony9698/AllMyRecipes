@@ -3,6 +3,10 @@
     min-width: 540px;
 }
 
+.TextArea textarea {
+    resize: none;
+}
+
 @media (max-width: 568px) {
     .TextArea {
         min-width: 100%;

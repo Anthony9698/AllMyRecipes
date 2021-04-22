@@ -1,0 +1,15 @@
+.Instructions {
+    padding: 0 1rem;
+    width: 540px;
+}
+
+.List {
+    border: 1px solid #ced4da;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.Label {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
