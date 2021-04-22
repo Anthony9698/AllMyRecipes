@@ -1,6 +1,7 @@
 .TextArea {
     margin-bottom: 1rem;
     min-width: 540px;
+    position: relative;
 }
 
 .TextArea textarea {

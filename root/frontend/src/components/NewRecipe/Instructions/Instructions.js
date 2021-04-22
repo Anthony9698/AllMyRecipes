@@ -7,9 +7,15 @@ const Instructions = props => {
         <div className={classes.Instructions}>
             <div className={classes.Label}>Instructions</div>
             <div className={classes.List}>
-                <Instruction />
-                <Instruction />
-                <Instruction />
+                {props.instructions.map((instruction, index) => (
+                    <Instruction
+                        key={index}
+                        index={index}
+                        selected={instruction.selected}
+                        clicked={props.selectInstruction}
+                        instrChanged={props.editInstructionDesc}
+                        deleteInstr={props.deleteInstr}>{instruction.desc}</Instruction>
+                ))}
             </div>
         </div>
     );

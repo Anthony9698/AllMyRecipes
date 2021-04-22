@@ -14,6 +14,11 @@
     border-radius: 0;
     position: relative;
     top: 8px;
+    background-color: var(--light);
+}
+
+.Ingredient input:disabled {
+    background-color: white;
 }
 
 .Ingredient:not(:last-child) {

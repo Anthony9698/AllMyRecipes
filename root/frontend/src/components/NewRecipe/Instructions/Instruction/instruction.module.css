@@ -6,12 +6,21 @@
     overflow-x: hidden;
 }
 
+.Instruction * {
+    margin-bottom: 0;
+}
+
 .Instruction textarea {
     width: 87%;
     height: 100%;
-    padding-right: 24px;
+    padding-right: 45px;
     outline: none;
     border: none;
+    background-color: var(--light);
+}
+
+.Instruction textarea:disabled {
+    background-color: white;
 }
 
 .Instruction * {
@@ -59,7 +68,8 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    right: 0.5rem;
+    top: 0.4rem;
+    right: 0.4rem;
     border-radius: 20px;
     background-image: url("../../../../assets/delete.svg");
     cursor: pointer;

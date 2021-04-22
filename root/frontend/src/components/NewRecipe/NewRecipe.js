@@ -15,6 +15,7 @@ import AddButton from '../UI/AddButton/AddButton';
 const NewRecipe = () => {
     const [recipeTitle, setRecipeTitle] = useState("Recipe Title")
     const [currIngredient, setCurrIngredient] = useState("");
+    const [currInstruction, setCurrInstruction] = useState("");
     const [servings, setAmount] = useState(1);
     const [foodType, setFoodType] = useState("Select");
     const [dropDownOpen, setDropDownOpen] = useState(false);
@@ -22,12 +23,14 @@ const NewRecipe = () => {
     const [hours, setHours] = useState(0);
     const [visibility, setVisibility] = useState("private");
     const [ingredients, setIngredients] = useState([]);
+    const [instructions, setInstructions] = useState([]);
 
     const numInRange = x => (Math.sign(x) === -1 && servings !== 1) ||
         (Math.sign(x) === 1 && servings !== 99);
 
     const toggleRecipeTitle = event => setRecipeTitle(event.target.value);
     const toggleCurrIngredient = event => setCurrIngredient(event.target.value);
+    const toggleCurrInstruction = event => setCurrInstruction(event.target.value);
     const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
     const toggleFoodtype = type => { setFoodType(type); setDropDownOpen(false) }
     const toggleAmount = x => numInRange(x) ? setAmount(prevAmt => prevAmt + x) : servings;
@@ -40,10 +43,22 @@ const NewRecipe = () => {
             setCurrIngredient("");
         }
     }
+    const addInstruction = event => {
+        if (currInstruction !== "") {
+            setInstructions(prevInstructions => [...prevInstructions, { desc: currInstruction, selected: false }]);
+            setCurrInstruction("");
+        }
+    }
     const selectIngredient = index => {
         let currIngredients = [...ingredients];
         currIngredients[index].selected = !currIngredients[index].selected;
         setIngredients(currIngredients);
+    }
+
+    const selectInstruction = index => {
+        let currInstructions = [...instructions];
+        currInstructions[index].selected = !currInstructions[index].selected;
+        setInstructions(currInstructions);
     }
 
     const editIngredientName = (event, index) => {
@@ -52,12 +67,26 @@ const NewRecipe = () => {
         setIngredients(currIngredients);
     }
 
+    const editInstructionDesc = (event, index) => {
+        let currInstructions = [...instructions];
+        currInstructions[index].desc = event.target.value;
+        setInstructions(currInstructions);
+    }
+
     const deleteIng = index => {
         let currIngredients = [...ingredients];
         currIngredients = currIngredients.slice(0, index)
             .concat(currIngredients
                 .slice(index + 1, currIngredients.length));
         setIngredients(currIngredients);
+    }
+
+    const deleteInstr = index => {
+        let currInstructions = [...instructions];
+        currInstructions = currInstructions.slice(0, index)
+            .concat(currInstructions
+                .slice(index + 1, currInstructions.length));
+        setInstructions(currInstructions);
     }
 
     return (
@@ -79,12 +108,15 @@ const NewRecipe = () => {
                         value={currIngredient}>
                         <AddButton clicked={addIngredient} />
                     </Input>
-                    {/* <Input 
-                        class="form-control" 
-                        label="Add Instruction" 
-                        placeholder="Instruction step" 
-                        add /> */}
-                    <TextArea class="form-control" label="Add Instruction" placeholder="Instruction Step" rows="3" />
+                    <TextArea
+                        class="form-control"
+                        label="Add Instruction"
+                        placeholder="Instruction Step"
+                        rows="3"
+                        value={currInstruction}
+                        onChange={toggleCurrInstruction}>
+                        <AddButton clicked={addInstruction} />
+                    </TextArea>
                     <div className={classes.Mid}>
                         <NumPicker label="Servings" clicked={toggleAmount} amount={servings} />
                         <TimePicker
@@ -125,7 +157,11 @@ const NewRecipe = () => {
                         selectIngredient={selectIngredient}
                         editIngredientName={editIngredientName}
                         deleteIng={deleteIng} />
-                    <Instructions />
+                    <Instructions
+                        instructions={instructions}
+                        selectInstruction={selectInstruction}
+                        editInstructionDesc={editInstructionDesc}
+                        deleteInstr={deleteInstr} />
                 </div>
             </div>
         </div>
