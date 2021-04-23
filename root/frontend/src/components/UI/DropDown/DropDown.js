@@ -9,7 +9,7 @@ const DropDown = props => {
             <label>{props.label}</label>
             <div className={classes.Input}>
                 <span className={classes.Type}>{props.value}</span>
-                <button className={classes.Delta} onClick={props.clicked}><Delta /></button>
+                <button className={classes.Delta} onClick={props.clicked} type="button"><Delta /></button>
                 <Menu isOpen={props.dropDownOpen} clicked={props.toggleFoodType} />
             </div>
         </div>

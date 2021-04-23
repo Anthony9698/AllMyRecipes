@@ -13,7 +13,8 @@ import Instructions from './Instructions/Instructions';
 import AddButton from '../UI/AddButton/AddButton';
 
 const NewRecipe = () => {
-    const [recipeTitle, setRecipeTitle] = useState("Recipe Title")
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
     const [currIngredient, setCurrIngredient] = useState("");
     const [currInstruction, setCurrInstruction] = useState("");
     const [servings, setAmount] = useState(1);
@@ -28,7 +29,8 @@ const NewRecipe = () => {
     const numInRange = x => (Math.sign(x) === -1 && servings !== 1) ||
         (Math.sign(x) === 1 && servings !== 99);
 
-    const toggleRecipeTitle = event => setRecipeTitle(event.target.value);
+    const toggleTitle = event => setTitle(event.target.value);
+    const toggleDescription = event => setDescription(event.target.value);
     const toggleCurrIngredient = event => setCurrIngredient(event.target.value);
     const toggleCurrInstruction = event => setCurrInstruction(event.target.value);
     const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
@@ -46,12 +48,12 @@ const NewRecipe = () => {
     const addInstruction = event => {
         if (currInstruction !== "") {
             setInstructions(prevInstructions => {
-                return [...prevInstructions, 
-                    {
-                        stepNum: 1, 
-                        desc: currInstruction, 
-                        selected: false 
-                    }];
+                return [...prevInstructions,
+                {
+                    stepNum: 1,
+                    desc: currInstruction,
+                    selected: false
+                }];
             });
             setCurrInstruction("");
         }
@@ -96,17 +98,65 @@ const NewRecipe = () => {
         setInstructions(currInstructions);
     }
 
+    const validForm = () => {
+        return (
+            title !== "" &&
+            description !== "" &&
+            ingredients.length >= 1 &&
+            instructions.length >= 1 &&
+            !isNaN(minutes) &&
+            !isNaN(hours) &&
+            foodType !== "Select" &&
+            (visibility === 'private' || visibility === 'public')
+        );
+    }
+
+    const resetForm = () => {
+        setTitle("");
+        setDescription("");
+        setIngredients([]);
+        setInstructions([]);
+        setHours(0);
+        setMinutes(0);
+        setFoodType("Select");
+        setVisibility("private");
+    }
+
+    const submitForm = event => {
+        event.preventDefault();
+        if (validForm()) {
+            let cookTime = hours + ":" + minutes;
+            console.log("Recipe Name: " + title);
+            console.log("Description: " + description);
+            console.log("Ingredients: " + JSON.stringify(ingredients, null, "\t"));
+            console.log("Instructions: " + JSON.stringify(instructions, null, "\t"));
+            console.log("Servings: " + servings);
+            console.log("Cook Time: " + cookTime);
+            console.log("Type: " + foodType);
+            console.log("Visibility: " + visibility);
+            console.log("==============================");
+            resetForm();
+        }
+    }
+
     return (
         <div className={classes.NewRecipe}>
             <h1>New Recipe</h1>
             <div className={classes.MainContent}>
-                <div className={classes.Info}>
+                <form className={classes.Form} onSubmit={submitForm}>
                     <Input
                         class="form-control"
                         label="Title"
                         placeholder="Recipe name"
-                        onChange={toggleRecipeTitle} />
-                    <TextArea class="form-control" label="Description" placeholder="Recipe description" rows="3" />
+                        onChange={toggleTitle}
+                        value={title} />
+                    <TextArea 
+                        class="form-control" 
+                        label="Description" 
+                        placeholder="Recipe description" 
+                        rows="3"
+                        onChange={toggleDescription}
+                        value={description} />
                     <Input
                         class="form-control"
                         label="Add Ingredient"
@@ -149,9 +199,12 @@ const NewRecipe = () => {
                         value="public"
                         checked={visibility === 'public'}
                         onChange={toggleVisibility}>Public Recipe (Anyone can see this)</Radio>
-                </div>
+                    <button
+                        className={["btn", "btn-success", classes.Save].join(" ")}
+                        type="submit">Add</button>
+                </form>
                 <div className={classes.Display}>
-                    <h5>{recipeTitle === "" ? "Recipe Title" : recipeTitle}</h5>
+                    <h5>{title === "" ? "Recipe Title" : title}</h5>
                     <CoverImage />
                     <div className={classes.RecipeIcons}>
                         <RecipeIcons

@@ -1,6 +1,6 @@
 .Ingredients {
     padding: 0 1rem;
-    width: 540px;
+    width: 520px;
     margin-bottom: 1rem;
 }
 
@@ -13,4 +13,10 @@
 .Label {
     font-size: 1rem;
     margin-bottom: 0.25rem;
+}
+
+@media (max-width: 568px) {
+    .Ingredients {
+        width: 100%;
+    }
 }

@@ -5,7 +5,6 @@ const TextArea = props => {
     let textArea = (
         <textarea
             className={props.class}
-            id="recipeDescription"
             rows={props.rows}
             placeholder={props.placeholder}
             value={props.value}
@@ -15,7 +14,6 @@ const TextArea = props => {
         textArea = (
             <textarea
                 className={props.class}
-                id="recipeDescription"
                 rows={props.rows}
                 placeholder={props.placeholder}
                 value={props.value}

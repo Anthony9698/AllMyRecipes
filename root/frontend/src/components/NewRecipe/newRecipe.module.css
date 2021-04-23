@@ -4,9 +4,13 @@
 
 .MainContent {
     display: flex;
-    justify-content: space-evenly;
-    padding-left: 156px;
-    padding-right: 156px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.MainContent > div {
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .NewRecipe h1::after {
@@ -18,9 +22,10 @@
     border-radius: 24px;
 }
 
-.Info {
+.Form {
     display: flex;
     flex-direction: column;
+    margin-right: auto;
 }
 
 .Display {
@@ -31,6 +36,7 @@
 
 .Display h5 {
     text-align: center;
+    word-break: break-all;
 }
 
 .Mid {
@@ -49,24 +55,36 @@
     flex-direction: column;
 }
 
-@media (max-width: 1425px) {
+.Save {
+    margin-top: 1.5rem;
+    width: 100px;
+}
+
+ @media (max-width: 1130px) {
     .MainContent {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 1rem;
+    }
+    .Form {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+    .Save {
+        width: 100%;
     }
 }
 
 @media (max-width: 568px) {
     .MainContent {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        width: 100%;
     }
-    .Info, .Display {
+    .Form, .Display {
         width: 100%;
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
     .Mid {
         flex-direction: column;
     }

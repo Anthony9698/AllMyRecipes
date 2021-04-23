@@ -4,7 +4,7 @@ import { ReactComponent as AddIcon } from '../../../assets/add.svg';
 
 const AddButton = props => {
     return (
-        <button className={classes.AddButton} onClick={props.clicked}>
+        <button className={classes.AddButton} onClick={props.clicked} type="button">
             <AddIcon />
         </button>
     );

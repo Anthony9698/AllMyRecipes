@@ -7,9 +7,9 @@ const NumPicker = props => {
         <div className={classes.NumPicker}>
             <label>{props.label}</label>
             <div className={classes.Input}>
-                <button onClick={() => props.clicked(-1)}><SubIcon /></button>
-                <button className={classes.Amount}>{props.amount}</button>
-                <button onClick={() => props.clicked(1)}><PlusIcon /></button>
+                <button onClick={() => props.clicked(-1)} type="button"><SubIcon /></button>
+                <button className={classes.Amount} type="button">{props.amount}</button>
+                <button onClick={() => props.clicked(1)} type="button"><PlusIcon /></button>
             </div>
         </div>
     );

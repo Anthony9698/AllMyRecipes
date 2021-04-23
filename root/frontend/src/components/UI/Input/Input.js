@@ -5,6 +5,7 @@ const Input = props => {
     let input = (
         <input
             type="text"
+            maxLength="64"
             className={props.class}
             placeholder={props.placeholder}
             onChange={props.onChange}
@@ -14,6 +15,7 @@ const Input = props => {
         input = (
             <input
                 type="text"
+                maxLength="64"
                 className={props.class}
                 placeholder={props.placeholder}
                 onChange={props.onChange}
