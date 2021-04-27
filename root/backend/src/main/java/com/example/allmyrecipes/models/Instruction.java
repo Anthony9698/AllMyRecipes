@@ -1,33 +1,35 @@
 package com.example.allmyrecipes.models;
 
 import com.example.allmyrecipes.Recipe.Recipe;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @Entity
 public class Instruction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
+    @NotNull
     private String description;
 
+    @NotNull
+    @Min(1)
+    private Integer step;
+
     @ManyToOne
-    @JoinColumn(name="recipe_id")
     private Recipe recipe;
 
     public Instruction() {}
 
-    public Instruction(String description, Recipe recipe) {
-        this.description = description;
-        this.recipe = recipe;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,6 +41,15 @@ public class Instruction {
         this.description = description;
     }
 
+    public Integer getStep() {
+        return step;
+    }
+
+    public void setStep(Integer step) {
+        this.step = step;
+    }
+
+    @JsonIgnore
     public Recipe getRecipe() {
         return recipe;
     }
@@ -52,7 +63,7 @@ public class Instruction {
         return "Instruction{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
-                ", recipe=" + recipe +
+                ", step=" + step +
                 '}';
     }
 }
