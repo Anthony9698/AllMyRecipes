@@ -1,0 +1,67 @@
+.RecipeCardDetail {
+    box-sizing: content-box;
+    width: 500px;
+    height: 675px;
+    border: 1px solid var(--gray);
+    position: absolute;
+    background-color: white;
+    border-radius: 0.5rem;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Description {
+    position: relative;
+    height: 340px;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    overflow-y: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.CoverImgWrapper {
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--gray);
+}
+
+.CoverImgWrapper img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.Close {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    top: 5px;
+    right: 0;
+}
+
+.Title {
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.Description h5::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid var(--gray-dark);
+    width: 100px;
+    height: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Edit {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    top: 8px;
+    right: 8px;
+}

@@ -15,6 +15,7 @@
     position: relative;
     top: 8px;
     background-color: var(--light);
+    border: none;
 }
 
 .Ingredient input:disabled {

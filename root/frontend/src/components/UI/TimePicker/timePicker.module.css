@@ -13,4 +13,6 @@
 .TimePicker input {
     padding: 0;
     text-align: center;
+    border: none;
+    outline: none;
 }

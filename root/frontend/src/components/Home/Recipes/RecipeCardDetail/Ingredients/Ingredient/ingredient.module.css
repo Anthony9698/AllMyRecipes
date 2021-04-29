@@ -1,0 +1,15 @@
+.Ingredient {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.Name {
+    margin-left: 0.5rem;
+}
+
+.Bullet {
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+}
