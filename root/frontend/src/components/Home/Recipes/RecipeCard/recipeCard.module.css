@@ -1,0 +1,19 @@
+.RecipeCard {
+    border: 2px solid var(--gray);
+    width: fit-content;
+    height: 250px;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.CoverImg {
+    box-sizing: border-box;
+}
+
+.Title {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
