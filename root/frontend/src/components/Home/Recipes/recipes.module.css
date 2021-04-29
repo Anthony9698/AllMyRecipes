@@ -1,4 +1,4 @@
-.Recipes {
+/* .Recipes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
     justify-items: center;
@@ -6,4 +6,10 @@
     align-content: space-around;
     padding-left: 10rem;
     padding-right: 10rem;
+} */
+
+.Recipes {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    display: flex;
 }

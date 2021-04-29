@@ -8,12 +8,14 @@ import Instructions from './Instructions/Instructions';
 const RecipeCardDetail = props => {
     return (
         <div className={classes.RecipeCardDetail}>
-            <button className={classes.Close}><CloseIcon /></button>
+            <button 
+                className={classes.Close}
+                onClick={() => props.close(null)}><CloseIcon /></button>
             <div className={classes.CoverImgWrapper}>
                 <img src="http://placehold.it/500x333.jpg" />
             </div>
             <div className={classes.Description}>
-                <h4 className={classes.Title}>Recipe Name</h4>
+                <h4 className={classes.Title}>{props.title}</h4>
                 <button className={classes.Edit}><EditIcon /></button>
                 <h5>Ingredients</h5>
                 <Ingredients />
