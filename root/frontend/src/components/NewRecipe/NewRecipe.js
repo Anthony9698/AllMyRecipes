@@ -11,17 +11,18 @@ import RecipeIcons from './RecipeIcons/RecipeIcons';
 import Ingredients from './Ingredients/Ingredients';
 import Instructions from './Instructions/Instructions';
 import AddButton from '../UI/AddButton/AddButton';
+import axios from 'axios';
 
 const NewRecipe = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [currIngredient, setCurrIngredient] = useState("");
     const [currInstruction, setCurrInstruction] = useState("");
-    const [servings, setAmount] = useState(1);
+    const [servings, setServings] = useState(1);
     const [foodType, setFoodType] = useState("Select");
     const [dropDownOpen, setDropDownOpen] = useState(false);
-    const [minutes, setMinutes] = useState(0);
-    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState("00");
+    const [hours, setHours] = useState("00");
     const [visibility, setVisibility] = useState("private");
     const [ingredients, setIngredients] = useState([]);
     const [instructions, setInstructions] = useState([]);
@@ -35,7 +36,7 @@ const NewRecipe = () => {
     const toggleCurrInstruction = event => setCurrInstruction(event.target.value);
     const toggleDropDownMenu = () => setDropDownOpen(!dropDownOpen);
     const toggleFoodtype = type => { setFoodType(type); setDropDownOpen(false) }
-    const toggleAmount = x => numInRange(x) ? setAmount(prevAmt => prevAmt + x) : servings;
+    const toggleAmount = x => numInRange(x) ? setServings(prevAmt => prevAmt + x) : servings;
     const toggleMinutes = event => setMinutes(event.target.value);
     const toggleHours = event => setHours(event.target.value);
     const toggleVisibility = event => setVisibility(event.target.value);
@@ -98,6 +99,16 @@ const NewRecipe = () => {
         setInstructions(currInstructions);
     }
 
+    const getCookTime = () => {
+        let hh = hours;
+        let mm = minutes;
+
+        if (hh.length < 2) { hh = "0" + hh }
+        if (mm.length < 2) { mm = "0" + mm }
+
+        return hh + ":" + mm; 
+    }
+
     const validForm = () => {
         return (
             title !== "" &&
@@ -118,24 +129,37 @@ const NewRecipe = () => {
         setInstructions([]);
         setHours(0);
         setMinutes(0);
+        setServings(1);
         setFoodType("Select");
         setVisibility("private");
     }
 
     const submitForm = event => {
         event.preventDefault();
+        
         if (validForm()) {
-            let cookTime = hours + ":" + minutes;
-            console.log("Recipe Name: " + title);
-            console.log("Description: " + description);
-            console.log("Ingredients: " + JSON.stringify(ingredients, null, "\t"));
-            console.log("Instructions: " + JSON.stringify(instructions, null, "\t"));
-            console.log("Servings: " + servings);
-            console.log("Cook Time: " + cookTime);
-            console.log("Type: " + foodType);
-            console.log("Visibility: " + visibility);
-            console.log("==============================");
-            resetForm();
+            axios({
+                method: "POST",
+                url: "http://localhost:8080/api/recipes",
+                data: {
+                    title: title,
+                    description: description,
+                    ingredients: ingredients.map(i => ({name: i.name})),
+                    instructions: instructions.map(i => ({description: i.desc, step: i.stepNum})),
+                    servings: servings,
+                    cookTime: getCookTime(),
+                    foodType: foodType,
+                    visibility: visibility
+                }
+            })
+            .then(() => {
+                alert("Recipe was created!");
+                resetForm();
+            })
+            .catch(error => {
+                alert("There was an error creating this recipe...");
+                console.log(error);
+            });
         }
     }
 

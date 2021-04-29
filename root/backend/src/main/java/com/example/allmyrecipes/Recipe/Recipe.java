@@ -24,7 +24,6 @@ public class Recipe {
     @NotNull
     @NotEmpty
     @NotBlank
-    @Column(unique = true)
     private String title;
 
     @NotNull
@@ -114,8 +113,11 @@ public class Recipe {
     }
 
     public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-        ingredients.forEach(ing -> ing.setRecipe(this));
+        this.ingredients.clear();
+        if (ingredients != null) {
+            ingredients.forEach(ing -> ing.setRecipe(this));
+            this.ingredients.addAll(ingredients);
+        }
     }
 
     public List<Instruction> getInstructions() {
@@ -123,8 +125,11 @@ public class Recipe {
     }
 
     public void setInstructions(List<Instruction> instructions) {
-        this.instructions = instructions;
-        instructions.forEach(inst -> inst.setRecipe(this));
+        this.instructions.clear();
+        if (instructions != null) {
+            instructions.forEach(instr -> instr.setRecipe(this));
+            this.instructions.addAll(instructions);
+        }
     }
 
     public Integer getServings() {

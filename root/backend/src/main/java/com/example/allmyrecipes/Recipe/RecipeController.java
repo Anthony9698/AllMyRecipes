@@ -1,20 +1,17 @@
 package com.example.allmyrecipes.Recipe;
 
-import com.example.allmyrecipes.models.Ingredient;
-import com.example.allmyrecipes.models.Instruction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalTime;
+import javax.validation.Valid;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/api/recipes")
 public class RecipeController {
     private final RecipeService recipeService;
@@ -30,13 +27,8 @@ public class RecipeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Recipe> getRecipeById(@PathVariable("id") Long recipeId) {
-        try {
-            Recipe recipe = recipeService.getRecipeById(recipeId);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Recipe getRecipeById(@PathVariable("id") Long recipeId) {
+        return recipeService.getRecipeById(recipeId);
     }
 
     @PostMapping
@@ -45,18 +37,10 @@ public class RecipeController {
     }
 
     @PutMapping("/{id}")
-    public void updateRecipe(
-            @PathVariable("id") Long recipeId,
-            @RequestParam(required = false) String title,
-            @RequestParam(required = false) String description,
-            @RequestParam(required = false) List<Ingredient> ingredients,
-            @RequestParam(required = false) List<Instruction> instructions,
-            @RequestParam(required = false) Integer servings,
-            @RequestParam(required = false) LocalTime cookTime,
-            @RequestParam(required = false) String foodType,
-            @RequestParam(required = false) String visibility) {
-        recipeService.updateRecipe(recipeId, title, description, ingredients,
-                instructions, servings, cookTime, foodType, visibility);
+    public ResponseEntity<Recipe> updateRecipe(
+            @PathVariable(value = "id") Long recipeId, @Valid @RequestBody Recipe newRecipe) {
+            recipeService.updateRecipe(recipeId, newRecipe);
+            return new ResponseEntity<>(recipeService.getRecipeById(recipeId), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

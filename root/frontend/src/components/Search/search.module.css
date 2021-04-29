@@ -1,21 +1,11 @@
 .Search {
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 12px;
-    border: 1px solid var(--dark);
+    display: flex;
+    height: fit-content;
+    justify-content: center;
 }
 
-input {
-    width: 100%;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 12px;
-    padding-right: 48px;
-    margin: 0;
-    border: none;
-    outline: none;
-    border-radius: 12px;
+.Search input {
+    border-radius: 1rem;
 }
 
 .SearchIcon {
