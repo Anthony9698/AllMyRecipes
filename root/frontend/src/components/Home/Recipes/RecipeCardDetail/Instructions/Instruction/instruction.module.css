@@ -1,0 +1,14 @@
+.Instruction {
+    display: flex;
+    align-items: flex-start;
+}
+
+.Bullet {
+    min-height: 26px;
+    min-width: 26px;
+    margin-right: 0.5rem;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+}

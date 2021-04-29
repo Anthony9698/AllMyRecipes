@@ -3,6 +3,7 @@ import classes from './recipeCardDetail.module.css';
 import { ReactComponent as CloseIcon } from '../../../../assets/closeDetail.svg';
 import { ReactComponent as EditIcon } from '../../../../assets/editRecipe.svg';
 import Ingredients from './Ingredients/Ingredients';
+import Instructions from './Instructions/Instructions';
 
 const RecipeCardDetail = props => {
     return (
@@ -16,6 +17,8 @@ const RecipeCardDetail = props => {
                 <button className={classes.Edit}><EditIcon /></button>
                 <h5>Ingredients</h5>
                 <Ingredients />
+                <h5>Instructions</h5>
+                <Instructions />
             </div>
         </div>
     );
