@@ -5,15 +5,17 @@ import classes from './instructions.module.css';
 const Instructions = props => {
     return (
         <div className={classes.Instructions}>
-            <Instruction>
-                In a bowl, combine chicken with all of the ingredients for
-                the chicken marinade; let marinate for 10 minutes to an hour 
-                (or overnight if time allows).
-            </Instruction>
-            <Instruction>
-                In a bowl, combine chicken with all of the ingredients for
-                the chicken marinade;
-            </Instruction>
+            {
+                props.children.map(instruction => (
+                    <Instruction
+                        key={instruction.id}
+                        id={instruction.id}
+                        step={instruction.step}
+                        desc={instruction.description}
+                        selected={instruction.selected}
+                        clicked={props.selectInstruction} />
+                ))
+            }
         </div>
     );
 }

@@ -5,12 +5,16 @@ import Ingredient from './Ingredient/Ingredient';
 const Ingredients = props => {
     return (
         <div className={classes.Ingredients}>
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
-            <Ingredient />
+            {
+                props.children.map(ing => (
+                    <Ingredient 
+                        key={ing.id}
+                        id={ing.id}
+                        name={ing.name}
+                        selected={ing.selected}
+                        clicked={props.selectIngredient} />
+                ))
+            }
         </div>
     )
 }

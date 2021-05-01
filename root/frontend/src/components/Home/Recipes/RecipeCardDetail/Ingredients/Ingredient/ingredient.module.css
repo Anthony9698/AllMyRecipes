@@ -6,10 +6,22 @@
 
 .Name {
     margin-left: 0.5rem;
+    user-select: none;
 }
 
 .Bullet {
     height: 20px;
     width: 20px;
     border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+}
+
+.Strike {
+    text-decoration: line-through;
+}
+
+.Selected {
+    position: absolute;
+    bottom: 0;
 }

@@ -51,7 +51,7 @@ const NewRecipe = () => {
             setInstructions(prevInstructions => {
                 return [...prevInstructions,
                 {
-                    stepNum: 1,
+                    stepNum: prevInstructions.length + 1,
                     desc: currInstruction,
                     selected: false
                 }];

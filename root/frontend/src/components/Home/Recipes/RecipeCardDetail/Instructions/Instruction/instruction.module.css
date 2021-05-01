@@ -11,4 +11,25 @@
     text-align: center;
     font-size: 1rem;
     cursor: pointer;
+    user-select: none;
+    position: relative;
 }
+
+.Desc {
+    user-select: none;
+}
+
+.Active {
+    color: white;
+}
+
+.Selected {
+    position: absolute;
+    top: 0;
+    left: 2px;
+}
+
+.Strike {
+    text-decoration: line-through;
+}
+

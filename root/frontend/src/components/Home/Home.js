@@ -15,21 +15,14 @@ const Home = props => {
             .catch(error => console.log(error));
     }, []);
 
-    const toggleRecipeDetailId = id => {
-        setRecipeDetailId(id);
-    }
-
-    let recipeDetail = null;
-    if (recipeDetailId) {
-        recipeDetail = <RecipeCardDetail detailId={recipeDetailId} close={toggleRecipeDetailId} />;
-    }
+    const toggleRecipeDetailId = id => setRecipeDetailId(id);
 
     return (
         <div className={classes.Home}>
             <h1>My Recipes</h1>
             <div className={classes.Search}><Search placeholder="Recipe Name..." /></div>
             <Recipes openRecipeDetail={toggleRecipeDetailId}>{recipes}</Recipes>
-            {recipeDetail}
+            {recipeDetailId && <RecipeCardDetail id={recipeDetailId} close={toggleRecipeDetailId} />}
         </div>
     );
 }
